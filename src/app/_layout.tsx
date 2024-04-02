@@ -1,8 +1,8 @@
-import "../styles/global.css";
+import "@/styles/global.css";
 
+import { Loading } from "@/components/loading";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { Loading } from "../components/loading";
 
 import {
 	Roboto_400Regular,
