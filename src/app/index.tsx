@@ -14,9 +14,7 @@ export default function Home(){
 	function handleAccessCredential(){
 		if(!ticketCode.trim()){
 			return Alert.alert("Credential", "Inform ticket code!")
-
 		}
-
 	}
 
 	return(
@@ -43,7 +41,7 @@ export default function Home(){
 				<Button title="Credential Access" onPress={handleAccessCredential}/>
 
 				<Link href="/register" className="text-gray-100 font-bold text-center mt-8">
-					Are you still not have ticket?
+					Do you still not have credentials??
 				</Link>
 			</View>
 		</View>
