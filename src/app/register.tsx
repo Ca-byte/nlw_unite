@@ -4,7 +4,7 @@ import { Alert, Image, View } from "react-native"
 import { Button } from "@/components/button"
 import { colors } from "@/styles/colors"
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons"
-import { Link } from "expo-router"
+import { Link, router } from "expo-router"
 import { useState } from "react"
 import { StatusBar } from "react-native"
 
@@ -16,10 +16,11 @@ export default function Register(){
 		if(!name.trim() || !email.trim()){
 			return Alert.alert("Register", "Fill in all fields!")
 		}
+		router.push("/ticket")
 	}
 	return(
 		<View className="flex-1 bg-green-500 items-center justify-center">
-					<StatusBar barStyle="light-content"/>
+			<StatusBar barStyle="light-content"/>
 			<Image 
 				source={require("@/assets/logo.png")} 
 				className="h-16" 
