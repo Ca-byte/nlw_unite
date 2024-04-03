@@ -31,20 +31,24 @@ export function Credential({onChangeAvatar, image, onExpandQRCode}: Props){
 				</ImageBackground>
 
 					{image ?
-					<TouchableOpacity activeOpacity={0.7} onPress={onChangeAvatar}>
+					<TouchableOpacity 
+						activeOpacity={0.7} 
+						onPress={onChangeAvatar}
+					>
 						<Image 
 						source={{ uri: image}} 
 						className="w-36 h-36 rounded-full -mt-24" 
 						/> 
-						</TouchableOpacity>:
-					<TouchableOpacity activeOpacity={0.7} 
-					className="w-36 h-36 rounded-full -mt-24  bg-gray-400/70 items-center justify-center"
-					onPress={onChangeAvatar}
+						</TouchableOpacity> :
+					<TouchableOpacity 
+						activeOpacity={0.7} 
+						className="w-36 h-36 rounded-full -mt-24  bg-gray-400/70 items-center justify-center"
+						onPress={onChangeAvatar}
 					>
 						<Feather
-						name="camera" 
-						color={colors.green[400]}
-						size={32}
+							name="camera" 
+							color={colors.green[400]}
+							size={32}
 						/>
 					</TouchableOpacity>
 					}

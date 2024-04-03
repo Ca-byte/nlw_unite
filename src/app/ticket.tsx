@@ -43,9 +43,9 @@ export default function Ticket(){
 			<StatusBar barStyle="light-content"/>
 			<Header title= "My Credential" />
 			<ScrollView 
-			className="-mt-28 -z-10" 
-			contentContainerClassName="px-8 pb-8"
-			showsVerticalScrollIndicator={false}
+				className="-mt-28 -z-10" 
+				contentContainerClassName="px-8 pb-8"
+				showsVerticalScrollIndicator={false}
 			>
 				<Credential 
 					image={image} 
@@ -71,7 +71,9 @@ export default function Ticket(){
 					activeOpacity={0.7} 
 					className="mt-10"
 				>
-					<Text className="text-white text-base text-center font-bold">Remove Credential</Text>
+					<Text className="text-white text-base text-center font-bold">
+						Remove Credential
+					</Text>
 				</TouchableOpacity>
 			</ScrollView>
 			<Modal visible={expandQRCode} statusBarTranslucent animationType="slide">

@@ -52,7 +52,10 @@ export default function Register(){
 				</Input>
 
 
-				<Button title="Register" onPress={handleRegister} />
+				<Button 
+					title="Register" 
+					onPress={handleRegister} 
+				/>
 
 				<Link href="/register" className="text-gray-100 font-bold text-center mt-8">
 					Are you already have ticket?
