@@ -59,6 +59,7 @@ export default function Ticket(){
 				showsVerticalScrollIndicator={false}
 			>
 				<Credential 
+					data={badStore.data}
 					image={image} 
 					onChangeAvatar={handleSelectImage}
 					onExpandQRCode={() => setExpandQRCode(true)}
@@ -74,7 +75,7 @@ export default function Ticket(){
 					Share credential
 				</Text>
 				<Text className="text-white font-regular text-base mt-1 mb-6">
-					Show the world that you will attend The Unite Summit!
+					Show the world that you will attend The {badStore.data.eventTitle}!
 				</Text>
 				<Button title="Share"/>
 
@@ -91,7 +92,7 @@ export default function Ticket(){
 			<Modal visible={expandQRCode} statusBarTranslucent animationType="slide">
 				<View className="flex-1 bg-green-500 items-center justify-center">
 					<TouchableOpacity activeOpacity={0.7} onPress={() => setExpandQRCode(false)}>
-						<QRCode value="carol" size={300} />
+						<QRCode value={badStore.data.checkInURL} size={300} />
 						<Text className="font-body text-orange-500 text-sm text-center mt-10">
 							Close
 						</Text>
