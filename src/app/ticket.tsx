@@ -10,10 +10,11 @@ import {
 	Alert,
 	Modal,
 	ScrollView,
+	Share,
 	StatusBar,
 	Text,
 	TouchableOpacity,
-	View
+	View,
 } from "react-native";
 
 import { Redirect } from "expo-router";
@@ -24,6 +25,20 @@ export default function Ticket(){
 	const [expandQRCode, setExpandQRCode] = useState(false)
 
 	const badStore = useBadgeStore()
+
+	async function handleShare(){
+		try {
+			if(badStore.data?.checkInURL){
+				await Share.share({
+					message: badStore.data.checkInURL,
+				})
+			}
+		} catch (error) {
+			console.log(error)
+			Alert.alert("Share", "Oh no It was not possible to share it!")
+			
+		}
+	}
 
 	async function handleSelectImage(){
 		try {
@@ -75,7 +90,7 @@ export default function Ticket(){
 				<Text className="text-white font-regular text-base mt-1 mb-6">
 					Show the world that you will attend The {badStore.data.eventTitle}!
 				</Text>
-				<Button title="Share"/>
+				<Button title="Share" onPress={handleShare}/>
 
 				<TouchableOpacity
 					activeOpacity={0.7} 
