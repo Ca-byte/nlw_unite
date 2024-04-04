@@ -16,9 +16,15 @@ import {
 	View
 } from "react-native";
 
+import { Redirect } from "expo-router";
+import { useBadgeStore } from "./store/badge-store";
+
+
 export default function Ticket(){
 	const [image, setImage] = useState("")
 	const [expandQRCode, setExpandQRCode] = useState(false)
+
+	const badStore = useBadgeStore()
 
 	async function handleSelectImage(){
 		try {
@@ -38,6 +44,11 @@ export default function Ticket(){
 			
 		}
 	}
+
+	if(!badStore.data?.checkInURL){
+		return <Redirect href="/" />
+	}
+	
 	return(
 		<View className="flex-1 bg-green-500">
 			<StatusBar barStyle="light-content"/>
@@ -70,6 +81,7 @@ export default function Ticket(){
 				<TouchableOpacity
 					activeOpacity={0.7} 
 					className="mt-10"
+					onPress={() => badStore.remove()}
 				>
 					<Text className="text-white text-base text-center font-bold">
 						Remove Credential
