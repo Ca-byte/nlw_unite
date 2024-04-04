@@ -20,6 +20,7 @@
 ## :memo: Project 
 
 Welcome to Pass.in is the Attendee Credential Management App! This mobile application enables event attendees to manage their credentials conveniently. Attendees can generate a credential code, register for events, upload a photo, and use QR codes for check-in.
+This is a project developed during NLW Unite, 1, 2 and 3 March of 2024, run by [@Rocketseat](https://github.com/Rocketseat).
 
 ## Features
 
