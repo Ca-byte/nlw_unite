@@ -1,20 +1,22 @@
-import { Input } from "@/components/input"
-import { Alert, Image, View } from "react-native"
-
 import { Button } from "@/components/button"
+import { Input } from "@/components/input"
+import { Link, router } from "expo-router"
+import { useState } from "react"
+import { Alert, Image, StatusBar, View } from "react-native"
+
 import { api } from "@/server/api"
 import { colors } from "@/styles/colors"
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons"
 import axios from "axios"
-import { Link, router } from "expo-router"
-import { useState } from "react"
-import { StatusBar } from "react-native"
+import { useBadgeStore } from "./store/badge-store"
 
 
 export default function Register(){
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
+
+	const badgeStore = useBadgeStore()
 
 	const EVENT_ID = "9e9bd979-9d10-4915-b339-3786b1634f33"
 
@@ -32,6 +34,10 @@ export default function Register(){
 			})
 
 			if(registerResponse.data.attendeeId){
+				const badResponse = await api.get(`/attendees/${registerResponse.data.attendeeId}/badge`)
+
+				badgeStore.save(badResponse.data.badge)
+
 				return Alert.alert("Register", "Well done! You are in!", [
 					{text: "OK", onPress: ()=> router.push("/ticket")}
 				])
