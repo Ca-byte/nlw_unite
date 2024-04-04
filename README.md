@@ -78,9 +78,6 @@ $ npm run dev
 $ npx prisma studio
 
 ```
-
----
-
 <br>
 
 ## 🔖 Layout ##
@@ -90,5 +87,8 @@ You can view the layout of the project through the links below:
 
 Remembering that you need to have a [Figma](http://figma.com/) account to access it.
 
+---
+
+<br>
 
 <p align="center">Developed with 💜 by Caroline Vieira</p>
