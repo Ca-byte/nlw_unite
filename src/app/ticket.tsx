@@ -21,7 +21,6 @@ import { useBadgeStore } from "./store/badge-store";
 
 
 export default function Ticket(){
-	const [image, setImage] = useState("")
 	const [expandQRCode, setExpandQRCode] = useState(false)
 
 	const badStore = useBadgeStore()
@@ -35,7 +34,7 @@ export default function Ticket(){
 			})
 
 			if(result.assets){
-				setImage(result.assets[0].uri)
+				badStore.updateAvatar(result.assets[0].uri)
 			}
 			
 		} catch (error) {
@@ -60,7 +59,6 @@ export default function Ticket(){
 			>
 				<Credential 
 					data={badStore.data}
-					image={image} 
 					onChangeAvatar={handleSelectImage}
 					onExpandQRCode={() => setExpandQRCode(true)}
 
